@@ -10,11 +10,19 @@
     </head>
 
     <body>
+        <style>
+            body {
+                background-image: url('/static/background1.png');
+                background-size: cover;
+               
+            }
+        </style>
+
         <div class="container">
-            <div class="card-container col-sm-5 offset-md-4">
+            <div class="card-container col">
                 <div class="card title-card">
-                    <a href="/">
-                        <h1 class="title-main">Blackshore Search Engine</h1>
+                    <a>
+                        <h1 class="title-main">Blackshore Image Search Engine (Custom CNN model)</h1>
                         <!-- Need help in making the link not blue -->
                     </a>
                 </div>
@@ -27,19 +35,19 @@
                 </form>
             </div>
             
-            <h2>Query:</h2>
+            <h2 class = "querytext">Query image:</h2>
             {% if query_path %}
             <img src="{{ query_path }}" width="200px">
             {% endif %}
 
-            <h2>Results:</h2>
-            <h6>Precision: {{ precision }}</h6>
-            <h6>Recall: {{ recall }}</h6>
-            <h6>F1: {{ F1 }}</h6>
+            <h2 class = "resulttext">Results using Custom CNN:</h2>
+            <h6 class = "precisiontext">Precision: {{ precision }}</h6>
+            <h6 class = "recalltext">Recall: {{ recall }}</h6>
+            <h6 class = "f1text">F1: {{ F1 }}</h6>
 
             {% for score in scores %}
             <figure style="float: left; margin-right: 20px; margin-bottom: 20px;">
-                <img src="{{ score[1] }}" height="200px">
+                <img src="{{ score[1] }}" height="200px" >
                 <figcaption>{{ score[0] }}</figcaption>
             </figure>
             {% endfor %}
